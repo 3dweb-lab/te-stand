@@ -20,8 +20,8 @@ var createScene = function () {
 
     // Camera sensibility
     camera.inertia = 0.5;
-    camera.inertialPanningX = 0.3;
-    camera.inertialPanningY = 0.3;
+    camera.inertialPanningX = 1;
+    camera.inertialPanningY = 0.5;
     camera.angularSensibilityX = 500;
     camera.angularSensibilityY = 500;
     camera.panningInertia = 0.5; //standard 1.0
