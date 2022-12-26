@@ -6,7 +6,7 @@ var createScene = function () {
     var scene = new BABYLON.Scene(engine);
 
     // Transparent background
-    scene.clearColor = new BABYLON.Color4(.62, .63, .61, 0);
+    scene.clearColor = new BABYLON.Color4(0.1, 0.1, 0.1, 0).toLinearSpace();
 
     // CAMERA
     var camera = new BABYLON.ArcRotateCamera("camera", BABYLON.Tools.ToRadians(-92), BABYLON.Tools.ToRadians(65), 1.5, BABYLON.Vector3.Zero(), scene);
