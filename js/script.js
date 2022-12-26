@@ -37,13 +37,13 @@ var createScene = function () {
 
     // ENVIRONMENT, SKYBOX
     //let lighting = BABYLON.CubeTexture.CreateFromPrefilteredData("https://assets.babylonjs.com/environments/environmentSpecular.env", scene);
-    let lighting = BABYLON.CubeTexture.CreateFromPrefilteredData("https://playground.babylonjs.com/textures/Studio_Softbox_2Umbrellas_cube_specular.env", scene);
-    //let lighting = new BABYLON.CubeTexture("assets/environments/studio_small_08_1k.dds", scene);
+    //let lighting = BABYLON.CubeTexture.CreateFromPrefilteredData("https://playground.babylonjs.com/textures/Studio_Softbox_2Umbrellas_cube_specular.env", scene);
+    let lighting = new BABYLON.CubeTexture("assets/environments/studio_small_08_1k.dds", scene);
     lighting.name = "envLighting";
     lighting.gammaSpace = true;
     scene.environmentTexture = lighting;
-    lighting.rotationY = BABYLON.Tools.ToRadians(0);
-    lighting.level = .15;
+    lighting.rotationY = BABYLON.Tools.ToRadians(90);
+    lighting.level = 1;
     // Skybox - comment out to hide visually
     //scene.createDefaultSkybox(scene.environmentTexture, true, (scene.activeCamera.maxZ - scene.activeCamera.minZ)/2, 0.3, false);
 
@@ -93,9 +93,9 @@ var createScene = function () {
         hotspot.width = "28px";
         hotspot.height = "28px";
         hotspot.cornerRadius = 40;
-        hotspot.background = "#eee";
+        hotspot.background = "white";
         hotspot.color = "#888";
-        hotspot.thickness = 2;
+        hotspot.thickness = 0;
         hotspot.alpha= 0.75;
         hotspot.fontSize = 20;
         hotspot.fontFamily = "Roboto";
