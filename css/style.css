@@ -38,7 +38,9 @@ html, body, div, span, p, a, img, canvas, header, footer{
     touch-action: none;
 }
 
-
+body {
+    -webkit-overflow-scrolling: touch;
+}
 
 header {
     height: 100px;
