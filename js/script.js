@@ -25,12 +25,13 @@ var createScene = function () {
     camera.inertialPanningY = 0.1;
     camera.angularSensibilityX = 500;
     camera.angularSensibilityY = 500;
-    camera.panningInertia = 0.5;
+    camera.panningInertia = 0.5; //standard 1.0
 
     // Camera behavior
     camera.useAutoRotationBehavior = true;
     camera.useFramingBehavior = true;
     camera.framingBehavior.mode = BABYLON.FramingBehavior.IgnoreBoundsSizeMode;
+    camera.framingBehavior.radiusScale = 0.55;
 
     // This attaches the camera to the canvas
     camera.attachControl(canvas, true);
@@ -75,7 +76,7 @@ var createScene = function () {
     // GUI
     // Create advance texture
     var advancedTexture = new BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI", scene);
-    advancedTexture.BILINEAR_SAMPLINGMODE = 16;
+    advancedTexture.BILINEAR_SAMPLINGMODE = 32;
     // advancedTexture.idealWidth = 1600;
     // advancedTexture.renderAtIdealSize = true;
     // if( window.innerWidth < 1000 ) {
@@ -90,8 +91,8 @@ var createScene = function () {
     hs.forEach(spot => {
         var hotspot = BABYLON.GUI.Button.CreateSimpleButton("button", spot.name);
         spot.setEnabled(false);
-        hotspot.width = "28px";
-        hotspot.height = "28px";
+        hotspot.width = "24px";
+        hotspot.height = "24px";
         hotspot.cornerRadius = 40;
         hotspot.background = "white";
         hotspot.color = "#888";
