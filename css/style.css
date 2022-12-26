@@ -29,7 +29,6 @@ CSS Styles für Typo3 RTE
   }
 
 html, body, div, span, p, a, img, canvas, header, footer{
-    scroll-behavior: auto;
     width: 100%;
     margin: 0;
     padding: 0;
