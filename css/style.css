@@ -28,7 +28,7 @@ CSS Styles für Typo3 RTE
       /* Safari, Android, iOS */ url("/fileadmin/font/roboto-v20-latin-700.svg#Roboto") format("svg"); /* Legacy iOS */
   }
 
-html, body, div, span, p, a, img, canvas, header, footer{
+html, body, div, span, p, a, img, header, footer{
     width: 100%;
     margin: 0;
     padding: 0;
@@ -42,13 +42,13 @@ body {
 }
 
 header {
-    height: 100px;
     transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     -ms-transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
     -webkit-transition: all 0.3s ease-in-out 0s;
     position: relative;
+    height: 100px;
     top: 0px;
     width: 100%;
     z-index: 1502;
