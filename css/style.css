@@ -38,7 +38,13 @@ html, body, div, span, p, a, img, canvas, header, footer{
     touch-action: none;
 }
 
+html {
+    height:100%;
+}
 
+body {
+    -webkit-overflow-scrolling: touch;
+}
 
 header {
     height: 100px;
@@ -174,7 +180,6 @@ p {
     touch-action: none;
     outline: 0;
     pointer-events: auto;
-    -webkit-overflow-scrolling: none;
 }
 
 div {
