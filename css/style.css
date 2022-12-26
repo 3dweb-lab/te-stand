@@ -1,3 +1,33 @@
+/*
+CSS Styles für Typo3 RTE
+*/
+
+/* Google Fonts */
+/* roboto-regular - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fileadmin/font/roboto-v20-latin-regular.eot"); /* IE9 Compat Modes */
+    src: local(""), url("/fileadmin/font/roboto-v20-latin-regular.eot?#iefix") format("embedded-opentype"),
+      /* IE6-IE8 */ url("/fileadmin/font/roboto-v20-latin-regular.woff2") format("woff2"),
+      /* Super Modern Browsers */ url("/fileadmin/font/roboto-v20-latin-regular.woff") format("woff"),
+      /* Modern Browsers */ url("/fileadmin/font/roboto-v20-latin-regular.ttf") format("truetype"),
+      /* Safari, Android, iOS */ url("/fileadmin/font/roboto-v20-latin-regular.svg#Roboto") format("svg"); /* Legacy iOS */
+  }
+  /* roboto-700 - latin */
+  @font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fileadmin/font/roboto-v20-latin-700.eot"); /* IE9 Compat Modes */
+    src: local(""), url("/fileadmin/font/roboto-v20-latin-700.eot?#iefix") format("embedded-opentype"),
+      /* IE6-IE8 */ url("/fileadmin/font/roboto-v20-latin-700.woff2") format("woff2"),
+      /* Super Modern Browsers */ url("/fileadmin/font/roboto-v20-latin-700.woff") format("woff"),
+      /* Modern Browsers */ url("/fileadmin/font/roboto-v20-latin-700.ttf") format("truetype"),
+      /* Safari, Android, iOS */ url("/fileadmin/font/roboto-v20-latin-700.svg#Roboto") format("svg"); /* Legacy iOS */
+  }
+
 html, body, div, span, p, a, img, canvas, header, footer{
     width: 100%;
     margin: 0;
@@ -244,4 +274,70 @@ button {
 .copyHead {
     color: #fff;
     text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+    header {
+        height: 50px;
+        transition: all 0.3s ease-in-out 0s;
+        -o-transition: all 0.3s ease-in-out 0s;
+        -ms-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        position: relative;
+        top: 0px;
+        width: 100%;
+        z-index: 1502;
+    }
+
+    #header_left {
+        height: 50px;
+        background: #fff;
+        width: 47%;
+        float: left;
+    }
+    
+    #header_logo {
+        display: inline-block;
+        margin-top: 0;
+        margin-right: 30px;
+        height: auto;
+        max-width: 75%;
+    }
+    
+    
+    #header_right {
+        height: 50px;
+        background: #fff;
+        width: 53%;
+        float: right;
+    }
+
+    .mainPageBlock {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+    #renderCanvas {
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        touch-action: none;
+        outline: 0;
+        pointer-events: auto;
+    }
+
+    #cameraPanel {
+        position: fixed;
+        right: 0;
+        width: 17em;
+        top: 55px;
+        z-index: 10;
+        transition: transform .25s ease-in-out;
+        transform: translateX(17em);
+        -webkit-transition: -webkit-transform .25s ease-in-out;
+        -webkit-transform: translateX(17em);
+    }
+
 }
