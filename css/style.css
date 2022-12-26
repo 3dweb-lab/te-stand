@@ -29,15 +29,21 @@ CSS Styles für Typo3 RTE
   }
 
 html, body, div, span, p, a, img, canvas, header, footer{
-    -webkit-overflow-scrolling: touch;
     width: 100%;
-    height:100%;
     margin: 0;
     padding: 0;
     color: #49515a;
     font-family: "Roboto","Segoe UI",Verdana,Arial;
     vertical-align: baseline;
     touch-action: none;
+}
+
+html {
+    height:100%;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
 }
 
 header {
@@ -174,6 +180,7 @@ p {
     touch-action: none;
     outline: 0;
     pointer-events: auto;
+    -webkit-overflow-scrolling: none;
 }
 
 div {
