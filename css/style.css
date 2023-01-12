@@ -160,11 +160,34 @@ p {
     height: 1px;
 }
 
+
+
 .content3D {
     height: 70vh;
     margin-bottom: 40px;
     display: flex;
     overflow: hidden;
+}
+
+#loadingScreen {
+    width: 100%;
+    height: 70vh;
+    margin-bottom: 40px;
+    display: flex;
+    overflow: hidden;
+    display: block;
+    margin-top: auto;
+    font: inherit;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    line-height: 70vh;
+    background-color: #ff8800cc;
+    z-index: 9999;
+    border: none !important;
+    outline: none !important;
+    position: top;
+    object-fit: none;
 }
 
 #renderCanvas {
