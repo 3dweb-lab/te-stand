@@ -1,5 +1,6 @@
 const canvas = document.getElementById("renderCanvas"); // Get the canvas element
 const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+renderCanvas.addEventListener("wheel", evt => evt.preventDefault());
 
 var createScene = function () {
     // This creates a basic Babylon Scene object (non-mesh)
@@ -27,7 +28,7 @@ var createScene = function () {
     camera.panningInertia = 0.5; //standard 1.0
 
     // Camera behavior
-    camera.useAutoRotationBehavior = true;
+    //camera.useAutoRotationBehavior = true;
     camera.useFramingBehavior = true;
     camera.framingBehavior.mode = BABYLON.FramingBehavior.IgnoreBoundsSizeMode;
     camera.framingBehavior.radiusScale = 0.55;
