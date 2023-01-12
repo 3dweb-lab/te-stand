@@ -2,7 +2,25 @@ const canvas = document.getElementById("renderCanvas"); // Get the canvas elemen
 const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 renderCanvas.addEventListener("wheel", evt => evt.preventDefault());
 
-var createScene = function () {
+var loadingScreenDiv = window.document.getElementById("loadingScreen");
+
+function customLoadingScreen() {
+    console.log("customLoadingScreen creation")
+}
+customLoadingScreen.prototype.displayLoadingUI = function () {
+    console.log("customLoadingScreen loading")
+    loadingScreenDiv.innerHTML = "Loading 3d content...";
+};
+customLoadingScreen.prototype.hideLoadingUI = function () {
+    console.log("customLoadingScreen loaded")
+    loadingScreenDiv.style.display = "none";
+};
+var loadingScreen = new customLoadingScreen();
+engine.loadingScreen = loadingScreen;
+
+engine.displayLoadingUI();
+
+var delayCreateScene = function () {
     // This creates a basic Babylon Scene object (non-mesh)
     var scene = new BABYLON.Scene(engine);
 
@@ -159,6 +177,7 @@ var createScene = function () {
     shadowGenerator.blurKernel = 8;
     shadowGenerator.useKernelBlur = true;
     */
+    engine.hideLoadingUI();
     });
 
     // POST PROCESSING
@@ -194,7 +213,7 @@ var createScene = function () {
 
     return scene;
 };
-const scene = createScene(); //Call the createScene function
+const scene = delayCreateScene(); //Call the createScene function
 
 // Register a render loop to repeatedly render the scene
 engine.runRenderLoop(function () {
