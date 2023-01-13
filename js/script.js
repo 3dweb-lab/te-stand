@@ -1,7 +1,8 @@
 const canvas = document.getElementById("renderCanvas"); // Get the canvas element
-const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+const engine = new BABYLON.Engine(canvas, true, null, true); // Generate the BABYLON 3D engine
 renderCanvas.addEventListener("wheel", evt => evt.preventDefault());
 
+// LOADING SCREEN
 var loadingScreenDiv = window.document.getElementById("loadingScreen");
 
 function customLoadingScreen() {
@@ -20,6 +21,8 @@ engine.loadingScreen = loadingScreen;
 
 engine.displayLoadingUI();
 
+
+// CREATE SCENE 
 var delayCreateScene = function () {
     // This creates a basic Babylon Scene object (non-mesh)
     var scene = new BABYLON.Scene(engine);
