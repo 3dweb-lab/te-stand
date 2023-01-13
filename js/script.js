@@ -100,7 +100,7 @@ var delayCreateScene = function () {
         advancedTexture.renderScale = 1;
 
         //advancedTexture.BILINEAR_SAMPLINGMODE = 32;
-        advancedTexture.NEAREST_NEAREST = 1;
+        advancedTexture.LINEAR_NEAREST = 12;
 
         // advancedTexture.idealWidth = 1600;
         // advancedTexture.renderAtIdealSize = true;
