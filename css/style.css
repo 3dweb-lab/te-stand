@@ -188,9 +188,13 @@ p {
     color: white;
     font-size: 20px;
     text-transform: uppercase;
-    padding: 50% 0;
-    animation: pulsate .5s infinite alternate;
+    padding: 70% 0;
     margin: 0 auto;
+    animation: pulsate .5s infinite alternate;
+    -o-animation: pulsate .5s infinite alternate;
+    -ms-animation: pulsate .5s infinite alternate;
+    -moz-animation: pulsate .5s infinite alternate;
+    -webkit-animation: pulsate .5s infinite alternate;
 }
 
 @keyframes pulsate {
