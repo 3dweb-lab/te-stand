@@ -1,5 +1,5 @@
 const canvas = document.getElementById("renderCanvas"); // Get the canvas element
-const engine = new BABYLON.Engine(canvas, false, null, true); // Generate the BABYLON 3D engine
+const engine = new BABYLON.Engine(canvas, true, null, false); // Generate the BABYLON 3D engine
 renderCanvas.addEventListener("wheel", evt => evt.preventDefault());
 
 // LOADING SCREEN
@@ -82,103 +82,104 @@ var delayCreateScene = function () {
     // LOAD 3D MODEL
     BABYLON.SceneLoader.ImportMesh("", "assets/models/", "TE_for_glb_03.glb", scene, async function(newMeshes){
     
-    // Focus Camera on mesh "_BoundingBox" or scene origin
-    const boundingbox = scene.getMeshByName("_BoundingBox");
-    if (boundingbox)
-    {
-        camera.setTarget(boundingbox);
-        boundingbox.setEnabled(false);
-    }
-    else 
-    {
-        camera.setTarget(new BABYLON.Vector3.Zero());
-    }
+        // Focus Camera on mesh "_BoundingBox" or scene origin
+        const boundingbox = scene.getMeshByName("_BoundingBox");
+        if (boundingbox)
+        {
+            camera.setTarget(boundingbox);
+            boundingbox.setEnabled(false);
+        }
+        else 
+        {
+            camera.setTarget(new BABYLON.Vector3.Zero());
+        }
 
-    // GUI
-    // Create advance texture
-    var advancedTexture = new BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI", scene);
-    advancedTexture.BILINEAR_SAMPLINGMODE = 32;
-    // advancedTexture.idealWidth = 1600;
-    // advancedTexture.renderAtIdealSize = true;
-    // if( window.innerWidth < 1000 ) {
-    //     hotspot.fontSize = 0;
-    //     return scene;
-    // }
+        // GUI
+        // Create advance texture
+        var advancedTexture = new BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI", scene);
+        advancedTexture.BILINEAR_SAMPLINGMODE = 32;
+        // advancedTexture.idealWidth = 1600;
+        // advancedTexture.renderAtIdealSize = true;
+        // if( window.innerWidth < 1000 ) {
+        //     hotspot.fontSize = 0;
+        //     return scene;
+        // }
 
-    let images = [];
-    var currentIndex = 0;
-    // Create Hotspots in 3d scene
-    var hs = scene.getTransformNodeByName("_Hotspots").getChildTransformNodes();
-    hs.forEach(spot => {
-        var hotspot = BABYLON.GUI.Button.CreateSimpleButton("button", spot.name);
-        spot.setEnabled(false);
-        hotspot.width = "24px";
-        hotspot.height = "24px";
-        hotspot.cornerRadius = 40;
-        hotspot.background = "white";
-        hotspot.color = "#888";
-        hotspot.thickness = 0;
-        hotspot.alpha= 0.75;
-        hotspot.fontSize = 20;
-        hotspot.fontFamily = "Roboto";
-        
-        // Make Hotspot buttons show image
-        images.push("assets/images/step1/"+spot.name+".jpg");
-        hotspot.onPointerUpObservable.add((evt) => {
-            showImage(spot.name-1);
+        let images = [];
+        var currentIndex = 0;
+        // Create Hotspots in 3d scene
+        var hs = scene.getTransformNodeByName("_Hotspots").getChildTransformNodes();
+        hs.forEach(spot => {
+            var hotspot = BABYLON.GUI.Button.CreateSimpleButton("button", spot.name);
+            spot.setEnabled(false);
+            hotspot.width = "24px";
+            hotspot.height = "24px";
+            hotspot.cornerRadius = 40;
+            hotspot.background = "white";
+            hotspot.color = "#888";
+            hotspot.thickness = 0;
+            hotspot.alpha= 0.75;
+            hotspot.fontSize = 20;
+            hotspot.fontFamily = "Roboto";
+            
+            // Make Hotspot buttons show image
+            images.push("assets/images/step1/"+spot.name+".jpg");
+            hotspot.onPointerUpObservable.add((evt) => {
+                showImage(spot.name-1);
+            });
+            advancedTexture.addControl(hotspot);
+            hotspot.linkWithMesh(spot);
         });
-        advancedTexture.addControl(hotspot);
-        hotspot.linkWithMesh(spot);
-    });
 
-    
-    var image = new BABYLON.GUI.Image("image", "");
-    image.stretch = BABYLON.GUI.Image.STRETCH_UNIFORM;
-    image.height = 0.8;
-    advancedTexture.addControl(image);
-    image.isVisible = false;
-
-    image.onPointerClickObservable.add((evt) => {
-        closeImage();
-    });
-
-    function showImage(index) {
-        image.source = images[index];
-        image.shadowBlur = screen.width/2;
-        image.isVisible = true;
-        image.scaleX = 1;
-        image.scaleY = 1;
-        image.zIndex = 5;
-        image.leftInPixels = 0;
-        image.topInPixels = 0;
-    };
-
-    function closeImage() {     
+        
+        var image = new BABYLON.GUI.Image("image", "");
+        image.stretch = BABYLON.GUI.Image.STRETCH_UNIFORM;
+        image.height = 0.8;
+        advancedTexture.addControl(image);
         image.isVisible = false;
-        image.shadowBlur = 0;
-    }
 
-    // Shadows handling
-    /*
-    const shadowGenerator = new BABYLON.ShadowGenerator(2048, light);
+        image.onPointerClickObservable.add((evt) => {
+            closeImage();
+        });
 
-    newMeshes.forEach(function(mesh)
-    {
-        shadowGenerator.addShadowCaster(mesh);
-        mesh.receiveShadows = true;
-    });
-    shadowGenerator.getShadowMap().refreshRate = BABYLON.RenderTargetTexture.REFRESHRATE_RENDER_ONCE;
-    shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_HIGH;
-    shadowGenerator.blurScale = 0.5;
-    shadowGenerator.blurBoxOffset = 1;
-    light.shadowMinZ = 0.1;
-    light.shadowMaxZ = 30;
-    shadowGenerator.useBlurCloseExponentialShadowMap = true;
-    shadowGenerator.forceBackFacesOnly = true;
-    shadowGenerator.blurKernel = 8;
-    shadowGenerator.useKernelBlur = true;
-    */
-    engine.hideLoadingUI();
+        function showImage(index) {
+            image.source = images[index];
+            image.shadowBlur = screen.width/2;
+            image.isVisible = true;
+            image.scaleX = 1;
+            image.scaleY = 1;
+            image.zIndex = 5;
+            image.leftInPixels = 0;
+            image.topInPixels = 0;
+        };
+
+        function closeImage() {     
+            image.isVisible = false;
+            image.shadowBlur = 0;
+        }
+
+        // Shadows handling
+        /*
+        const shadowGenerator = new BABYLON.ShadowGenerator(2048, light);
+
+        newMeshes.forEach(function(mesh)
+        {
+            shadowGenerator.addShadowCaster(mesh);
+            mesh.receiveShadows = true;
+        });
+        shadowGenerator.getShadowMap().refreshRate = BABYLON.RenderTargetTexture.REFRESHRATE_RENDER_ONCE;
+        shadowGenerator.filteringQuality = BABYLON.ShadowGenerator.QUALITY_HIGH;
+        shadowGenerator.blurScale = 0.5;
+        shadowGenerator.blurBoxOffset = 1;
+        light.shadowMinZ = 0.1;
+        light.shadowMaxZ = 30;
+        shadowGenerator.useBlurCloseExponentialShadowMap = true;
+        shadowGenerator.forceBackFacesOnly = true;
+        shadowGenerator.blurKernel = 8;
+        shadowGenerator.useKernelBlur = true;
+        */
+        // Hide Loading Screen after finished loading model
+        engine.hideLoadingUI();
     });
 
     // POST PROCESSING
@@ -215,6 +216,10 @@ var delayCreateScene = function () {
     return scene;
 };
 const scene = delayCreateScene(); //Call the createScene function
+
+//engine.advancedTexture.renderScale = 1;
+
+engine.adaptToDeviceRatio = false;
 
 // Register a render loop to repeatedly render the scene
 engine.runRenderLoop(function () {
