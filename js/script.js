@@ -1,5 +1,5 @@
 const canvas = document.getElementById("renderCanvas"); // Get the canvas element
-const engine = new BABYLON.Engine(canvas, true, null, true); // Generate the BABYLON 3D engine
+const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 renderCanvas.addEventListener("wheel", evt => evt.preventDefault());
 
 // LOADING SCREEN
@@ -10,7 +10,7 @@ function customLoadingScreen() {
 }
 customLoadingScreen.prototype.displayLoadingUI = function () {
     console.log("customLoadingScreen loading")
-    loadingScreenDiv.innerHTML = "Loading 3d content...";
+    //loadingScreenDiv.innerHTML = "loading...";
 };
 customLoadingScreen.prototype.hideLoadingUI = function () {
     console.log("customLoadingScreen loaded")
@@ -185,34 +185,34 @@ var delayCreateScene = function () {
 
     // POST PROCESSING
     // Motion blur
-    var motionblur = new BABYLON.MotionBlurPostProcess(
-        'motionblur', // The name of the effect.
-        scene, // The scene containing the objects to blur according to their velocity.
-        1.0, // The required width/height ratio to downsize to before computing the render pass.
-        camera // The camera to apply the render pass to.
-        );
-    motionblur.motionStrength = 0.1; // amout of the blur effect
-    motionblur.motionBlurSamples = 16;
-    motionblur.isObjectBased = false; // Disable object-based mode in order to enable screen-based mode.
+    // var motionblur = new BABYLON.MotionBlurPostProcess(
+    //     'motionblur', // The name of the effect.
+    //     scene, // The scene containing the objects to blur according to their velocity.
+    //     1.0, // The required width/height ratio to downsize to before computing the render pass.
+    //     camera // The camera to apply the render pass to.
+    //     );
+    // motionblur.motionStrength = 0.1; // amout of the blur effect
+    // motionblur.motionBlurSamples = 16;
+    // motionblur.isObjectBased = false; // Disable object-based mode in order to enable screen-based mode.
 
-    // Create Default RenderPipeline
-    var defaultPipeline = new BABYLON.DefaultRenderingPipeline("default", false, scene, [camera]);
-    // MSAA
-    defaultPipeline.samples = 4;
-    // FXAA
-    defaultPipeline.fxaaEnabled = true;
-    // Sharpening
-    defaultPipeline.sharpenEnabled = false;
-    defaultPipeline.sharpen.edgeAmount = 0.1;
-    defaultPipeline.sharpen.colorAmount = 1.0;
-    // Bloom
-    defaultPipeline.bloomEnabled = false;
-    defaultPipeline.bloomThreshold = 100;
-    defaultPipeline.bloomWeight = 0.01;
-    defaultPipeline.bloomKernel = 128;
-    defaultPipeline.bloomScale = 0.9;
-    // Image processing effect
-    defaultPipeline.imageProcessingEnabled = false;
+    // // Create Default RenderPipeline
+    // var defaultPipeline = new BABYLON.DefaultRenderingPipeline("default", false, scene, [camera]);
+    // // MSAA
+    // defaultPipeline.samples = 4;
+    // // FXAA
+    // defaultPipeline.fxaaEnabled = true;
+    // // Sharpening
+    // defaultPipeline.sharpenEnabled = false;
+    // defaultPipeline.sharpen.edgeAmount = 0.1;
+    // defaultPipeline.sharpen.colorAmount = 1.0;
+    // // Bloom
+    // defaultPipeline.bloomEnabled = false;
+    // defaultPipeline.bloomThreshold = 100;
+    // defaultPipeline.bloomWeight = 0.01;
+    // defaultPipeline.bloomKernel = 128;
+    // defaultPipeline.bloomScale = 0.9;
+    // // Image processing effect
+    // defaultPipeline.imageProcessingEnabled = false;
 
     return scene;
 };
