@@ -98,7 +98,10 @@ var delayCreateScene = function () {
         // Create advance texture
         var advancedTexture = new BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI", scene);
         advancedTexture.renderScale = 1;
+
         //advancedTexture.BILINEAR_SAMPLINGMODE = 32;
+        advancedTexture.NEAREST_NEAREST = 1;
+
         // advancedTexture.idealWidth = 1600;
         // advancedTexture.renderAtIdealSize = true;
         // if( window.innerWidth < 1000 ) {
