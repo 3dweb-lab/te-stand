@@ -162,8 +162,6 @@ p {
     height: 1px;
 }
 
-
-
 .content3D {
     height: 70vh;
     margin-bottom: 40px;
@@ -178,6 +176,7 @@ p {
     display: block;
     overflow: hidden;
     text-align: center;
+    padding: 35vh 0;
     background-color: #ff8800;
     z-index: 9999;
     border: none !important;
@@ -186,13 +185,37 @@ p {
     object-fit: none;
 }
 
+i {
+    position: flex;
+    color: white;
+    font-size: 72px;
+    margin: 0 auto;
+    animation: spin .5s linear infinite;
+    -o-animation: spin .5s linear infinite;
+    -ms-animation: spin .5s linear infinite;
+    -moz-animation: spin .5s linear infinite;
+    -webkit-animation: spin .5s linear infinite;
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
+
 #loadingText {
-    position: absolute;
+    position: flex;
     font: inherit;
     color: white;
     font-size: 20px;
     text-transform: uppercase;
-    padding: 35vh 0;
     margin: 0 auto;
     animation: pulsate .5s infinite alternate;
     -o-animation: pulsate .5s infinite alternate;
