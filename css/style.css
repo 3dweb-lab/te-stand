@@ -38,6 +38,8 @@ html, body, div, span, p, a, img, header, footer{
 }
 
 body {
+    height: 100lvh;
+    width: 100lvw;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -188,7 +190,7 @@ p {
     color: white;
     font-size: 20px;
     text-transform: uppercase;
-    padding: 70% 0;
+    padding: 35vh 0;
     margin: 0 auto;
     animation: pulsate .5s infinite alternate;
     -o-animation: pulsate .5s infinite alternate;
@@ -203,7 +205,7 @@ p {
   }
 
 #renderCanvas {
-    width: 100lvh;
+    width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
