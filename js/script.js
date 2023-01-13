@@ -151,13 +151,11 @@ var delayCreateScene = function () {
         image.zIndex = 5;
         image.leftInPixels = 0;
         image.topInPixels = 0;
-        camera.useAutoRotationBehavior = false;
     };
 
     function closeImage() {     
         image.isVisible = false;
         image.shadowBlur = 0;
-        camera.useAutoRotationBehavior = true;
     }
 
     // Shadows handling
