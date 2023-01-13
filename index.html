@@ -12,7 +12,7 @@
     <script async type="module" src="js/script.js"></script>
     <script async type="module" src="js/hotspot.js"></script>
     <script async type="module" src="js/instrumentation.js"></script>
-    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body style="-webkit-overflow-scrolling: touch; overflow-y: scroll;">
@@ -21,9 +21,9 @@
         <div id="header_right"></div>
     </header>
 
-
     <section class="content3D">
         <div id="loadingScreen">
+            <i class='bx bx-loader-alt' ></i>
             <p id="loadingText">loading...</p>
         </div>
         <canvas id="renderCanvas" touch-action="none" data-engine="Babylon.js v5.38.0" style="touch-action: none; -webkit-tap-highlight-color: transparent; opacity: 1;"></canvas>
