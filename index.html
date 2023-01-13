@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport">
     <title>TE in Web3D step2</title>
     <script src="https://kit.fontawesome.com/26d4a64054.js" crossorigin="anonymous"></script>
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
@@ -20,11 +21,12 @@
         <div id="header_left"><img id="header_logo" src="https://www.vrpe.de/fileadmin/img/vrpe_logo_pos.jpg" alt="VRPE Logo"></div>
         <div id="header_right"></div>
     </header>
-    <div id="loadingScreen">
-        <p id="loadingText">loading...</p>
-    </div>
+
 
     <section class="content3D">
+        <div id="loadingScreen">
+            <p id="loadingText">loading...</p>
+        </div>
         <canvas id="renderCanvas" touch-action="none" data-engine="Babylon.js v5.38.0" style="touch-action: none; -webkit-tap-highlight-color: transparent; opacity: 1;"></canvas>
         <div id="cameraPanel">
             <div id="cameraControlsZone">
