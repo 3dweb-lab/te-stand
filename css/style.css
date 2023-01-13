@@ -169,6 +169,7 @@ p {
     margin-bottom: 40px;
     display: flex;
     overflow: hidden;
+    position: relative;
 }
 
 #loadingScreen {
@@ -181,11 +182,12 @@ p {
     z-index: 9999;
     border: none !important;
     outline: none !important;
-    position: top;
+    position: absolute;
     object-fit: none;
 }
 
 #loadingText {
+    position: absolute;
     font: inherit;
     color: white;
     font-size: 20px;
@@ -205,7 +207,7 @@ p {
   }
 
 #renderCanvas {
-    width: 100vmax;
+    width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -213,7 +215,7 @@ p {
     pointer-events: auto;
     border: none !important;
     outline: none !important;
-    position: top;
+    position: relative;
     object-fit: none;
 }
 
