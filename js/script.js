@@ -31,7 +31,7 @@ var delayCreateScene = function () {
     scene.clearColor = new BABYLON.Color4(0.1, 0.1, 0.1, 0).toLinearSpace();
 
     // CAMERA
-    var camera = new BABYLON.ArcRotateCamera("camera", BABYLON.Tools.ToRadians(-92), BABYLON.Tools.ToRadians(65), 1.5, BABYLON.Vector3.Zero(), scene);
+    var camera = new BABYLON.ArcRotateCamera("camera", BABYLON.Tools.ToRadians(-92), BABYLON.Tools.ToRadians(65), 1.0, BABYLON.Vector3.Zero(), scene);
     
     // Camera limits
     camera.lowerBetaLimit = 0.05;
@@ -97,7 +97,8 @@ var delayCreateScene = function () {
         // GUI
         // Create advance texture
         var advancedTexture = new BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI", scene);
-        advancedTexture.BILINEAR_SAMPLINGMODE = 32;
+        advancedTexture.renderScale = 1;
+        //advancedTexture.BILINEAR_SAMPLINGMODE = 32;
         // advancedTexture.idealWidth = 1600;
         // advancedTexture.renderAtIdealSize = true;
         // if( window.innerWidth < 1000 ) {
