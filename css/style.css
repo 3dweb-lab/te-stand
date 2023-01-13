@@ -178,8 +178,8 @@ p {
     display: block;
     overflow: hidden;
     text-align: center;
-    background-color: #ff8800cc;
-    z-index: 9998;
+    background-color: #ff8800;
+    z-index: 9999;
     border: none !important;
     outline: none !important;
     position: absolute;
@@ -233,7 +233,7 @@ div {
     right: 0;
     width: 17em;
     top: 8em;
-    z-index: 9999;
+    z-index: 10;
     transition: transform .25s ease-in-out;
     transform: translateX(17em);
     -webkit-transition: -webkit-transform .25s ease-in-out;
