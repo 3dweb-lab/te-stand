@@ -203,7 +203,7 @@ p {
   }
 
 #renderCanvas {
-    width: 100vh;
+    width: 100lvh;
     display: block;
     margin-left: auto;
     margin-right: auto;
