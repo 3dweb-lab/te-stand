@@ -221,10 +221,6 @@ var delayCreateScene = function () {
 };
 const scene = delayCreateScene(); //Call the createScene function
 
-//engine.advancedTexture.renderScale = 1;
-
-engine.adaptToDeviceRatio = false;
-
 // Register a render loop to repeatedly render the scene
 engine.runRenderLoop(function () {
         scene.render();
@@ -234,3 +230,7 @@ engine.runRenderLoop(function () {
 window.addEventListener("resize", function () {
         engine.resize();
 });
+
+engine.adaptToDeviceRatio = false;
+// webglUtils.resizeCanvasToDisplaySize(gl.canvas);      
+// gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
