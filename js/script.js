@@ -138,7 +138,7 @@ var delayCreateScene = function () {
         
         var image = new BABYLON.GUI.Image("image", "");
         image.stretch = BABYLON.GUI.Image.STRETCH_UNIFORM;
-        image.height = 0.8;
+        image.height = 1;
         advancedTexture.addControl(image);
         image.isVisible = false;
 
@@ -232,5 +232,3 @@ window.addEventListener("resize", function () {
 });
 
 engine.adaptToDeviceRatio = false;
-// webglUtils.resizeCanvasToDisplaySize(gl.canvas);      
-// gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
