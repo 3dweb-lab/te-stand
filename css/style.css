@@ -162,6 +162,12 @@ p {
     height: 1px;
 }
 
+canvas {
+    display: block;  /* prevents scrollbar */
+    width: 100vw;
+    height: 100vh;
+}
+
 .content3D {
     height: 70vh;
     margin-bottom: 40px;
@@ -235,8 +241,7 @@ i {
 } */
 
 #renderCanvas {
-    width: 100%;
-    display: block;
+
     margin-left: auto;
     margin-right: auto;
     touch-action: none;
