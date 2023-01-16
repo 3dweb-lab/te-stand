@@ -1,6 +1,4 @@
 const canvas = document.getElementById("renderCanvas"); // Get the canvas element
-canvas.height = viewport.height;
-canvas.width = viewport.width;
 const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 renderCanvas.addEventListener("wheel", evt => evt.preventDefault());
 
@@ -140,10 +138,9 @@ var delayCreateScene = function () {
         
         var image = new BABYLON.GUI.Image("image", "");
         image.stretch = BABYLON.GUI.Image.STRETCH_UNIFORM;
-        image.height = 1;
+        image.height = 0.8;
         advancedTexture.addControl(image);
         image.isVisible = false;
-        imageFilter.filter(image, filter);
 
         image.onPointerClickObservable.add((evt) => {
             closeImage();
@@ -218,20 +215,23 @@ var delayCreateScene = function () {
     defaultPipeline.bloomKernel = 128;
     defaultPipeline.bloomScale = 0.9;
     // Image processing effect
-    defaultPipeline.imageProcessingEnabled = true;
+    defaultPipeline.imageProcessingEnabled = false;
 
     return scene;
 };
 const scene = delayCreateScene(); //Call the createScene function
 
+
+engine.adaptToDeviceRatio = false;
+
 // Register a render loop to repeatedly render the scene
 engine.runRenderLoop(function () {
-        scene.render();
+    scene.render();
 });
 
 // Watch for browser/canvas resize events
 window.addEventListener("resize", function () {
-        engine.resize();
-});
+    engine.advancedTexture.renderScale = 1;
+    engine.resize();
 
-engine.adaptToDeviceRatio = false;
+});
