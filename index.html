@@ -11,7 +11,8 @@
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/gui/babylon.gui.js"></script>
     <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-    <script async type="module" src="js/script.js"></script>
+    <script async type="module" src="js/babylon-script.js"></script>
+    <script src="js/functions.js"></script>
 </head>
 <body style="-webkit-overflow-scrolling: touch; overflow-y: scroll;">
     <header id="header">
@@ -25,29 +26,53 @@
             <p id="loadingText">loading...</p>
         </div>
         <canvas id="renderCanvas" touch-action="none" data-engine="Babylon.js v5.38.0" style="touch-action: none; -webkit-tap-highlight-color: transparent; opacity: 1;"></canvas>
-        <div id="cameraPanel">
+        <div id="controlPanel">
             <div id="cameraControlsZone">
-                Active camera:
-                <br>
+                <p>
+                    <input type="button" class="smallButtonControlPanel" id="screenShot" value="Take screenshot">
+                </p>
+                Active camera:<br>
                 <select id="camerasList">
                     <option value="Name: Camera, type: ArcRotateCamera">Default Camera</option>
                 </select>
-                <p>
-                    <button class="smallButtonControlPanel" id="">Take screenshot</button>
-                </p>
+                
+                Post-processes:<br> 
                 <p id="controlButtons">
-                    Post-processes:
-                    <button class="smallButtonControlPanel" id="toggleFxaa">Toggle FXAA (antialiasing)</button>
-                    <button class="smallButtonControlPanel" id="toggleFsaa4">Toggle FSAA 4X (antialiasing)</button>
-                    <button class="smallButtonControlPanel" id="toggleBloom">Toggle Bloom</button>
+                    <div class="toggleSwitch">
+                        <label>FXAA (antialiasing)</label>
+                        <label class="toggle">
+                            <input id="toggleFxaa" type="checkbox">
+                            <span class="roundbutton"></span>
+                        </label>
+                    </div>
+                    <div class="toggleSwitch">
+                        <label>MSAA (antialiasing)</label>
+                        <label class="toggle">
+                            <input id="toggleMsaa" type="checkbox">
+                            <span class="roundbutton"></span>
+                        </label>
+                    </div>
+                    <div class="toggleSwitch">
+                        <label>Sharpening</label>
+                        <label class="toggle">
+                            <input id="toggleSharpening" type="checkbox">
+                            <span class="roundbutton"></span>
+                        </label>
+                    </div>
+                    <div class="toggleSwitch">
+                        <label>Bloom</label>
+                        <label class="toggle">
+                            <input id="toggleBloom" type="checkbox">
+                            <span class="roundbutton"></span>
+                        </label>
+                    </div>
                 </p>
             </div>
-            <div class="cameraTag">
+            <div class="cameraTag"></div>
+            <div class="cameraTag" id="cameraClickableTag">
                 <img src="assets/icons/cogwheel.png">
             </div>
-            <div class="cameraTag" id="cameraClickableTag"></div>
         </div>
-        <script src="js/loadercustoms.js"></script>    
     </section>
     
     <section class = "mainPageBlock">
@@ -94,7 +119,7 @@
     <section id="footer">
         <div class="footerCon">
             <div class="footerRow">   
-                <div class="copyHead">© 2022 VRPE Team GmbH. Alle Rechte vorbehalten.</div>
+                <div class="copyHead">© 2023 VRPE Team GmbH. Alle Rechte vorbehalten.</div>
             </div>
         </div>
     </section>
