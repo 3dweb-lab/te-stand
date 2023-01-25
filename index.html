@@ -33,18 +33,11 @@
                 </p>
                 Active camera:<br>
                 <select id="camerasList">
-                    <option value="Name: Camera, type: ArcRotateCamera">Default Camera</option>
+                    <option value="">Default Camera</option>
                 </select>
                 
                 Post-processes: 
                 <p id="controlButtons">
-                    <div class="toggleSwitch">
-                        <label>FXAA (antialiasing)</label>
-                        <label class="toggle">
-                            <input id="toggleFxaa" type="checkbox">
-                            <span class="roundbutton"></span>
-                        </label>
-                    </div>
                     <!-- <div class="toggleSwitch">
                         <label>MSAA (antialiasing)</label>
                         <label class="toggle">
@@ -52,6 +45,13 @@
                             <span class="roundbutton"></span>
                         </label>
                     </div> -->
+                    <div class="toggleSwitch">
+                        <label>FXAA (antialiasing)</label>
+                        <label class="toggle">
+                            <input id="toggleFxaa" type="checkbox">
+                            <span class="roundbutton"></span>
+                        </label>
+                    </div>
                     <div class="toggleSwitch">
                         <label>Sharpening</label>
                         <label class="toggle">
@@ -63,6 +63,13 @@
                         <label>Bloom</label>
                         <label class="toggle">
                             <input id="toggleBloom" type="checkbox">
+                            <span class="roundbutton"></span>
+                        </label>
+                    </div>
+                    <div class="toggleSwitch">
+                        <label>Motion blur</label>
+                        <label class="toggle">
+                            <input id="toggleMB" type="checkbox">
                             <span class="roundbutton"></span>
                         </label>
                     </div>
