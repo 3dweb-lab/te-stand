@@ -149,7 +149,7 @@ p {
     color: inherit;
     font-size: 14px;
     display: block;
-    margin-block-start: 1em;
+    margin-block-start: 0em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -259,8 +259,8 @@ div {
 
 #controlPanel {
     position: absolute;
-    right: -17em;
-    width: 17em;
+    right: -15em;
+    width: 15em;
     top: 2em;
     z-index: 10;
     transition: right .25s ease-in-out;
@@ -314,14 +314,22 @@ div {
 
 .smallButtonControlPanel {
     height: 2.2em;
-    width: 17em;
-}
-
-button {
+    width: 15em;
     border: 1px solid #888;
+    border-radius: 2px;
     background-color: #dedede;
     color: #888;
-    margin: 2px 0 2px 0;
+    cursor: pointer;
+}
+
+.smallButtonControlPanel:hover {
+    background-color: #eee;
+}
+
+
+#camerasList {
+    width: 15em;
+    cursor: pointer;
 }
 
 * {
@@ -380,9 +388,8 @@ button {
 }
 
 input, label{
-    font: inherit;
-    color: #888;;
     font-size: 14px;
+    color: #888;
 }
 
 .toggle input {
@@ -393,7 +400,7 @@ input, label{
     width: 100%;
     background-color: #888;
     transition: all 0.15s;
-    border-radius: 0.7em;
+    border-radius: 1em;
     cursor: pointer;
 }
 
