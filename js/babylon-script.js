@@ -2,9 +2,6 @@ const canvas = document.getElementById("renderCanvas"); // Get the canvas elemen
 const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 canvas.addEventListener("wheel", evt => evt.preventDefault());
 
-const rootUrl = "assets/models/";
-const fileName = "TE_for_glb_05.glb";
-
 // LOADING SCREEN
 var loadingScreenDiv = window.document.getElementById("loadingScreen");
 
@@ -23,6 +20,10 @@ var loadingScreen = new customLoadingScreen();
 engine.loadingScreen = loadingScreen;
 
 engine.displayLoadingUI();
+//
+
+const rootUrl = "assets/models/";
+const fileName = "TE_for_glb_05.glb";
 
 const createScene = function () {
     // Creates a basic Babylon Scene object
@@ -266,9 +267,10 @@ const createScene = function () {
             defaultPipeline.bloomKernel = 64;
             defaultPipeline.bloomScale = 0.5;
         }
+    
+    engine.hideLoadingUI();
     });
     //engine.setHardwareScalingLevel(.5);
-    engine.hideLoadingUI();
     return scene;
 };
 const scene = createScene(); //Call the createScene function
