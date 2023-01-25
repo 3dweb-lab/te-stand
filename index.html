@@ -29,14 +29,14 @@
         <div id="controlPanel">
             <div id="cameraControlsZone">
                 <p>
-                    <input type="button" class="smallButtonControlPanel" id="screenShot" value="Take screenshot">
+                    <button type="button" class="smallButtonControlPanel" id="screenShot">Take screenshot</button>
                 </p>
                 Active camera:<br>
                 <select id="camerasList">
                     <option value="Name: Camera, type: ArcRotateCamera">Default Camera</option>
                 </select>
                 
-                Post-processes:<br> 
+                Post-processes: 
                 <p id="controlButtons">
                     <div class="toggleSwitch">
                         <label>FXAA (antialiasing)</label>
@@ -45,13 +45,13 @@
                             <span class="roundbutton"></span>
                         </label>
                     </div>
-                    <div class="toggleSwitch">
+                    <!-- <div class="toggleSwitch">
                         <label>MSAA (antialiasing)</label>
                         <label class="toggle">
                             <input id="toggleMsaa" type="checkbox">
                             <span class="roundbutton"></span>
                         </label>
-                    </div>
+                    </div> -->
                     <div class="toggleSwitch">
                         <label>Sharpening</label>
                         <label class="toggle">
