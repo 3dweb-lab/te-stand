@@ -215,14 +215,14 @@ var delayCreateScene = function () {
             }
         });
         // MSAA
-        var inputMSAA = document.getElementById('toggleMsaa');
-        inputMSAA.addEventListener('change',function(){
-            if(this.checked) {
-                defaultPipeline.samples = 4;
-            } else {
-                defaultPipeline.samples = 1;
-            }
-        });
+        // var inputMSAA = document.getElementById('toggleMsaa');
+        // inputMSAA.addEventListener('change',function(){
+        //     if(this.checked) {
+        //         defaultPipeline.samples = 4;
+        //     } else {
+        //         defaultPipeline.samples = 1;
+        //     }
+        // });
         // Sharpening
         var inputSharp = document.getElementById('toggleSharpening');
         inputSharp.addEventListener('change',function(){
