@@ -324,6 +324,11 @@ button {
     margin: 2px 0 2px 0;
 }
 
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
 #footer {
     background-color: #48515a;
     overflow: hidden;
@@ -461,7 +466,7 @@ input:checked + .roundbutton:before  {
         padding-right: 15px;
       }
 
-    #renderCanvas {
+    /* #renderCanvas {
         width: 100%;
         display: block;
         margin-left: auto;
@@ -469,18 +474,22 @@ input:checked + .roundbutton:before  {
         touch-action: none;
         outline: 0;
         pointer-events: auto;
-    }
+    } */
 
     #controlPanel {
-        position: fixed;
-        right: 0;
+        position: absolute;
+        right: -17em;
         width: 17em;
-        top: 55px;
+        top: 2em;
         z-index: 10;
-        transition: transform .25s ease-in-out;
-        transform: translateX(17em);
+        transition: right .25s ease-in-out;
+        /* transform: translateX(17em);
         -webkit-transition: -webkit-transform .25s ease-in-out;
-        -webkit-transform: translateX(17em);
+        -webkit-transform: translateX(17em); */
+    }
+    
+    #controlPanel.open {
+        right: 0;
     }
 
 }
