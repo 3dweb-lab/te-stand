@@ -251,7 +251,7 @@ var delayCreateScene = function () {
 
     var screenshot = document.getElementById('screenShot');
     screenshot.addEventListener('click',function(){
-        BABYLON.Tools.CreateScreenshot(engine, camera, {width: window.innerHeight, height: window.innerWidth});
+        BABYLON.Tools.CreateScreenshot(engine, camera, {width: canvas.width, height: canvas.height});
     });
 
 
