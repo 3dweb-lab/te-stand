@@ -292,7 +292,7 @@ div {
 }
 
 #cameraClickableTag.open {
-    transform: rotate(-360deg);
+    transform: rotate(-180deg);
 }
 
 #cameraControlsZone {
@@ -363,7 +363,6 @@ button {
     color: #fff;
     text-align: center;
 }
-
 
 .toggleSwitch {
     display: flex;
@@ -475,21 +474,4 @@ input:checked + .roundbutton:before  {
         outline: 0;
         pointer-events: auto;
     } */
-
-    #controlPanel {
-        position: absolute;
-        right: -17em;
-        width: 17em;
-        top: 2em;
-        z-index: 10;
-        transition: right .25s ease-in-out;
-        /* transform: translateX(17em);
-        -webkit-transition: -webkit-transform .25s ease-in-out;
-        -webkit-transform: translateX(17em); */
-    }
-    
-    #controlPanel.open {
-        right: 0;
-    }
-
 }
