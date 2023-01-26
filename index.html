@@ -5,8 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TE in Web3D step2</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/26d4a64054.js" crossorigin="anonymous"></script>
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/gui/babylon.gui.js"></script>
@@ -20,9 +23,13 @@
         <div id="header_right"></div>
     </header>
 
+    <section class="introPage">
+
+    </section>
+
     <section class="content3D">
         <div id="loadingScreen">
-            <i class='bx bx-loader-alt' ></i>
+            <i class='bx bx-loader-alt'></i>
             <p id="loadingText">loading...</p>
         </div>
         <canvas id="renderCanvas" touch-action="none" data-engine="Babylon.js v5.38.0" style="touch-action: none; -webkit-tap-highlight-color: transparent; opacity: 1;"></canvas>
@@ -81,47 +88,149 @@
             </div>
         </div>
     </section>
-    
+    <span class="navBar">
+        <nav>
+            <a href="#Customer" class="active">Cutomer journey</a>
+            <a href="#Design">Design</a>
+            <a href="#Mood">Mood</a>
+            <a href="#Exhibits">Exhibits</a>
+            <a href="#Plans">Floor plans</a>
+        </nav>
+    </span>
+
     <section class = "mainPageBlock">
-        <span class=".h1Dachzeile">
-            Methodology
-        </span>
-        <h2>Design</h2>
-        <ul>
-            <li>We have carefully analysed TE's web communication in relation with the tree focus-markets.</li>
-            <li>In a next step, we developped a design to translate the clear communication mechanism.</li>
-            <li>We paid similar careful attention to TE CI understanding that flexibility was - to an acceptable extent - not only possible but wishable to answer the above. As an example the „genius bars“ are a 3D interpretation of the grids found in the CI and on the webpage. The „market backdrops“ are inspired by the illustration guidelines and the TE „hero displays“. The „pylons“ stem from the „innovation towers“ and the „what's inside walls“.</li>
-        </ul>
-        
-        <div class="trenner"></div>
-        
-        <div class="infoSection">
-            <h3>Top view</h3>
-            <p>The stand is composed of four distinct thematic zones (from left to right): hospitality and the market sectors:
-                <br>eVTOL / commercial air / space
-            </p>
-            <img src="assets/images/render/TE_PAS_23_Entwurf V9.2_View01.jpg">
+
+        <div class="pageBlock">
+            <div>
+                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                <div class="row">
+                    <div class="column_50_50">
+                        <h1 id="Customer">Customer Journey.<br>
+                            Focus markets.<br>
+                            Customer centric.<br>
+                            Sustainable.
+                        </h1>
+                    </div>
+                    <div class="column_50_50">
+                        <p>VRPE is to develop a strong PAS23 display concept for TE ADM (see inputs to be considered on mindmap page 3).​
+                        </p><br>
+                        <p>Deliverables depicted in this booklet are:</p>
+                        <ul class="a">
+                            <li>A new stand concept, strengthening the TE position in
+                                aerospace and at the leading show of the industry. In particular,
+                                design solutions will be delivered in terms of creating a
+                                captivating customer journey with a clear information and
+                                communication structure.
+                                <ul class="b">
+                                    <li>Focus on the three markets and related target groups / TE offer</li>
+                                    <li>Customer centric / Fostering of marketing - sales activities &amp; exchanges</li>
+                                    <li>Careful use of resources incl. space reduction compared to 2019</li>
+                                </ul>
+                            </li>
+                            <li>A new eVTOL exhibit incl. a communication concept in two interactive steps:
+                                <ul class="c">
+                                    <li>Challenges to the eVTOL OEMs</li>
+                                    <li>Answers TE</li>
+                                </ul>
+                            </li>
+                            <li>Concepts and ideas towards the digitization of exhibits and presentations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                <h1 id="Design">Design</h1>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <img src="assets/images/render/led-glass-shelf-120x20cm.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/render/68afe26249c8b1d5aa73e6defc6c2849.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/render/a5bc807a0dc718a400e1a053731f7adf.gif" alt="">
+                    </div>  
+                    <div class="grid-item">
+                        <img src="assets/images/render/Genius_Bar,_SoHo_Apple_Store,_September_2003.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/render/genius_bar_redesign.jpg" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="assets/images/render/glass-cube.jpg" alt="">
+                    </div> 
+                  </div>
+            </div>
+
+            <div>
+                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                <h1 id="Exhibits">Exhibits</h1>
+                <h2>eVTOL exhibit</h2>
+                <div class="row">
+                    <div class="column_70_30">
+                        <figure>
+                            <img src="assets/images/render/TE_PAS_23_Final_View11 korr_freisteller.png" alt="eVTOL exhibit">
+                            <figcaption>From the welcome desk a great view of the eVTOL opens up</figcaption>
+                        </figure>
+                    </div>
+                    <div class="column_30_70">
+                        <p>VRPE is to develop a strong
+                            PAS23 display concept for
+                            TE ADM (see inputs to be
+                            considered on mindmap
+                            page 3).</p><br>
+                        <p>Deliverables depicted in this booklet are:</p>
+                        <ul class="a">
+                            <li>A new stand concept, strengthening the TE
+                                position in aerospace and at the leading show of
+                                the industry. In particular, design solutions will be
+                                delivered in terms of creating a captivating
+                                customer journey with a clear information and communication structure.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Info Stelae</h2>
+                <div class="row">
+                    <div class="column_70_30">
+                        <figure>
+                            <img src="assets/images/render/TE_PAS_23_Final_ViewX_freisteller.png" alt="info stele">
+                            <figcaption>Front and back view of one of the three Info Stelae</figcaption>
+                        </figure>
+                    </div>
+                    <div class="column_30_70">
+                        <p>VRPE is to develop a strong
+                            PAS23 display concept for
+                            TE ADM (see inputs to be
+                            considered on mindmap
+                            page 3).</p><br>
+                        <p>Deliverables depicted in this booklet are:</p>
+                        <ul class="a">
+                            <li>A new stand concept, strengthening the TE
+                                position in aerospace and at the leading show of
+                                the industry. In particular, design solutions will be
+                                delivered in terms of creating a captivating
+                                customer journey with a clear information and communication structure.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                <h1 id="Plans">Floor Plans</h1>
+                <figure>
+                    <img src="assets/images/render/Floorplan_top.jpg" alt="Floor plan top view">
+                    <figcaption>Top view (with sails)</figcaption>
+                </figure>
+                <br>
+                <br>
+            </div>
+
         </div>
 
-        <div class="infoSection">
-            <h3>Front view left</h3>
-            <p>The stand is composed of four distinct thematic zones (from left to right): hospitality and the market sectors:
-                <br>eVTOL / commercial air / space</p>
-            <img src="assets/images/render/TE_PAS_23_Entwurf V9.1_View02.jpg">
-        </div>
-
-        <div class="infoSection">
-            <h3>View on eVTOL exhibit</h3>
-            <p>From the welcome desk a great view of the eVTOL opens up</p>
-            <img src="assets/images/render/TE_PAS_23_Final_View11 korr.jpg">
-        </div>
-
-        <div class="infoSection">
-            <h3>Floor plan</h3>
-            <img src="assets/images/render/Floorplan_top.jpg">
-        </div>
-
-        <div class="trenner"></div>
     </section>
     <section id="footer">
         <div class="footerCon">
@@ -129,6 +238,9 @@
                 <div class="copyHead">© 2023 VRPE Team GmbH. Alle Rechte vorbehalten.</div>
             </div>
         </div>
+    </section>
+
+    <section class="">
     </section>
 </body>
 </html>
