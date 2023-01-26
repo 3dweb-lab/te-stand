@@ -33,31 +33,33 @@ const createScene = function () {
     scene.clearColor = new BABYLON.Color4(0.1, 0.1, 0.1, 0).toLinearSpace();
 
     // CAMERA
-    var camera = new BABYLON.ArcRotateCamera("camera", BABYLON.Tools.ToRadians(-135), BABYLON.Tools.ToRadians(85), 1.0, BABYLON.Vector3.Zero(), scene);
+    var defaultCamera = new BABYLON.ArcRotateCamera("Default Camera", BABYLON.Tools.ToRadians(-135), BABYLON.Tools.ToRadians(85), 1.0, BABYLON.Vector3.Zero(), scene);
+    var sceneCameras = [];
+    sceneCameras.push(defaultCamera);
 
     // Camera limits
-    camera.lowerBetaLimit = 0.05;
-    camera.upperBetaLimit = (Math.PI / 2) * 0.95;
-    camera.lowerRadiusLimit = 6;
-    camera.upperRadiusLimit = 50;
-    camera.minZ = 0.5;
+    defaultCamera.lowerBetaLimit = 0.05;
+    defaultCamera.upperBetaLimit = (Math.PI / 2) * 0.95;
+    defaultCamera.lowerRadiusLimit = 6;
+    defaultCamera.upperRadiusLimit = 50;
+    defaultCamera.minZ = 0.5;
 
     // Camera sensibility
-    camera.inertia = 0.5;
-    camera.inertialPanningX = 1;
-    camera.inertialPanningY = 0.5;
-    camera.angularSensibilityX = 500;
-    camera.angularSensibilityY = 500;
-    camera.panningInertia = 0.5; //standard 1.0
+    defaultCamera.inertia = 0.5;
+    defaultCamera.inertialPanningX = 1;
+    defaultCamera.inertialPanningY = 0.5;
+    defaultCamera.angularSensibilityX = 500;
+    defaultCamera.angularSensibilityY = 500;
+    defaultCamera.panningInertia = 0.5; //standard 1.0
 
     // Camera behavior
-    //camera.useAutoRotationBehavior = true;
-    camera.useFramingBehavior = true;
-    camera.framingBehavior.mode = BABYLON.FramingBehavior.IgnoreBoundsSizeMode;
-    camera.framingBehavior.radiusScale = 0.55;
+    //defaultCamera.useAutoRotationBehavior = true;
+    defaultCamera.useFramingBehavior = true;
+    defaultCamera.framingBehavior.mode = BABYLON.FramingBehavior.IgnoreBoundsSizeMode;
+    defaultCamera.framingBehavior.radiusScale = 0.55;
 
     // This attaches the camera to the canvas
-    camera.attachControl(canvas, true);
+    defaultCamera.attachControl(canvas, true);
 
      // ENVIRONMENT, SKYBOX
     //let envLighting = BABYLON.CubeTexture.CreateFromPrefilteredData("https://assets.babylonjs.com/environments/environmentSpecular.env", scene);
@@ -84,9 +86,9 @@ const createScene = function () {
         const meshes = container.meshes;
         const materials = container.materials;
         const cameras = container.cameras;
-        //...
-      
-        // Adds all elements to the scene
+        for (var i=0; i<cameras.length; i++) {
+            sceneCameras.push(cameras[i]);
+        }
 
         container.addAllToScene();
 
@@ -94,12 +96,12 @@ const createScene = function () {
         const boundingbox = scene.getMeshByName("_BoundingBox");
         if (boundingbox)
         {
-            camera.setTarget(boundingbox);
+            defaultCamera.setTarget(boundingbox);
             boundingbox.setEnabled(false);
         }
         else 
         {
-            camera.setTarget(new BABYLON.Vector3.Zero());
+            defaultCamera.setTarget(new BABYLON.Vector3.Zero());
         }
 
         // GUI
@@ -124,14 +126,14 @@ const createScene = function () {
         hs.forEach(spot => {
             var hotspot = BABYLON.GUI.Button.CreateSimpleButton("button", spot.name);
             spot.setEnabled(false);
-            hotspot.width = "24px";
-            hotspot.height = "24px";
+            hotspot.width = "38px";
+            hotspot.height = "38px";
             hotspot.cornerRadius = 40;
             hotspot.background = "white";
             hotspot.color = "#888";
             hotspot.thickness = 0;
             hotspot.alpha= 0.75;
-            hotspot.fontSize = 20;
+            hotspot.fontSize = 24;
             hotspot.fontFamily = "Roboto";
             
             // Make Hotspot buttons show image
@@ -173,9 +175,11 @@ const createScene = function () {
         // SCREENSHOT
         var screenshot = document.getElementById('screenShot');
         screenshot.addEventListener('click',function(){
-            BABYLON.Tools.CreateScreenshot(engine, camera, {width: canvas.width, height: canvas.height});
+            BABYLON.Tools.CreateScreenshot(engine, sceneCameras, {width: canvas.width, height: canvas.height});
         });
-        console.log(cameras);
+
+        console.log(sceneCameras);
+
         // CAMERA SELECTOR
         var select = document.getElementById("camerasList");
         for (var i=0; i < cameras.length; i++) {
@@ -185,14 +189,11 @@ const createScene = function () {
             newOption.text = cameras[i].id;
             select.appendChild(newOption);
         }
-        
-        // select.addEventListener('change', () => {
-        //     scene.activeCamera = cameras[select.options.selected];
-        // });
+        select.addEventListener('change', () => {
+            scene.activeCamera = sceneCameras[1];
+        });
 
         
-        //scene.activeCamera = select.value;
-
         // POST PROCESSING
         // Motion blur
         var motionblur = new BABYLON.MotionBlurPostProcess(
@@ -216,7 +217,7 @@ const createScene = function () {
         });
 
         // Create Default RenderPipeline
-        var defaultPipeline = new BABYLON.DefaultRenderingPipeline("DefaultRenderingPipeline", false, scene, scene.cameras);
+        var defaultPipeline = new BABYLON.DefaultRenderingPipeline("DefaultRenderingPipeline", false, scene, sceneCameras);
         if (defaultPipeline.isSupported) {
             defaultPipeline.bloomEnabled = false;
             defaultPipeline.fxaaEnabled = false;
