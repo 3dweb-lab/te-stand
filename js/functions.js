@@ -9,10 +9,26 @@ document.addEventListener('DOMContentLoaded', function() {
         panel.classList.toggle("open");
     });
 
+    const body = document.getElementById("body");
+    const content3D = document.getElementById("content3D");
+    const mainPageBlock = document.getElementsByClassName("mainPageBlock");
+    const pageBlock = document.getElementsByClassName("pageBlock");
+    const footer = document.getElementById("footer");
+
+
     const loginPage = document.getElementById("loginPage");
     const inputPsw = document.getElementById("psw");
     const enterButton = document.getElementById("loginBtn");
-    const body = document.getElementById("body");
+
+    content3D.style.visibility = "hidden";
+    footer.style.visibility = "hidden";
+
+    for (var i; i<mainPageBlock.length; i++){
+        mainPageBlock[i].visibility = "hidden";
+    }
+    for (var i; i<pageBlock.length; i++){
+        pageBlock[i].visibility = "hidden";
+    }
 
     enterButton.addEventListener("click", function() {
         validateLogin();
@@ -31,6 +47,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function validateLogin() {
         if (inputPsw.value === password) {
             //alert("Login successful!");
+            //titelBlock.style.visibility = "visible";
+            content3D.style.visibility = "visible";
+            mainPageBlock.visibility = "visible";
+            footer.style.visibility = "visible";
+
+            for (var i; i<mainPageBlock.length; i++){
+                mainPageBlock[i].visibility = "visible";
+            }
+            for (var i; i<pageBlock.length; i++){
+                pageBlock[i].visibility = "visible";
+            }
+
             body.style.overflowY = "scroll";
             body.style.overflowX = "hidden";
             loginPage.style.display = "none";

@@ -206,6 +206,17 @@ img {
     margin-bottom: 25px;
 }
 
+
+#titelBlock {
+    margin: 0 auto;
+    border-width: 0px;
+    padding: 0px 15px;
+    font-size: 1.0em;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+    line-height: 23px;
+}
+
 #titel{
     font-size: 3em;
     font-weight: 700;
@@ -379,7 +390,7 @@ canvas {
     height: 70vh;
 }
 
-.content3D {
+#content3D {
     display: flex;
     position: relative;
     margin: 0;
