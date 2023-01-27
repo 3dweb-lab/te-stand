@@ -17,22 +17,43 @@
     <script async type="module" src="js/babylon-script.js"></script>
     <script src="js/functions.js"></script>
 </head>
-<body style="-webkit-overflow-scrolling: touch; overflow-y: scroll;">
+
+<body id="body">
+    <div id="loginPage">
+        <header id="headerLogin">
+            <div class="header_left">
+                <img class="header_logo" src="assets/images/logos/vrpe_logo_alpha.png" alt="VRPE Logo">
+            </div>
+            <div class="header_right"></div>
+        </header>
+        <div id="loginImgContainer">
+            <div id="loginImage">
+                <img src="assets/images/render/AdobeStock_502335921.jpeg" alt="">
+            </div>
+        </div>
+        <form id="loginContainer">
+            <label for="psw" style="font-weight: 300;">Enter password from email</label>
+            <input id="psw" type="password" required>
+            <input id="loginBtn" type="button" value="Enter" onclick="validateLogin()">
+        </form>
+    </div>
+
     <header id="header">
-        <div id="header_left"><img id="header_logo" src="https://www.vrpe.de/fileadmin/img/vrpe_logo_pos.jpg" alt="VRPE Logo"></div>
-        <div id="header_right"></div>
+        <div class="header_left">
+            <img class="header_logo" src="assets/images/logos/vrpe_logo_alpha.png" alt="VRPE Logo">
+        </div>
+        <div class="header_right"></div>
     </header>
-
-    <section class="introPage">
-
-    </section>
-
+    <div class="pageBlock">
+        <p id="titel">TE PAS23<br>
+            The trusted partner</p>
+    </div>
     <section class="content3D">
         <div id="loadingScreen">
             <i class='bx bx-loader-alt'></i>
             <p id="loadingText">loading...</p>
         </div>
-        <canvas id="renderCanvas" touch-action="none" data-engine="Babylon.js v5.38.0" style="touch-action: none; -webkit-tap-highlight-color: transparent; opacity: 1;"></canvas>
+        <canvas id="renderCanvas" touch-action="none" style="touch-action: none; -webkit-tap-highlight-color: transparent; opacity: 1;"></canvas>
         <div id="controlPanel">
             <div id="cameraControlsZone">
                 <p>
@@ -102,10 +123,12 @@
 
         <div class="pageBlock">
             <div>
-                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
                 <div class="row">
+                    <div class="emptyRow"></div>
                     <div class="column_50_50">
-                        <h1 id="Customer">Customer Journey.<br>
+                        <h1 id="Customer">
+                            <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                            Customer Journey.<br>
                             Focus markets.<br>
                             Customer centric.<br>
                             Sustainable.
@@ -140,8 +163,10 @@
             </div>
 
             <div>
-                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
-                <h1 id="Design">Design</h1>
+                <div class="emptyRow"></div>
+                <h1 id="Design">
+                    <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                    Design</h1>
                 <div class="grid-container">
                     <div class="grid-item">
                         <img src="assets/images/render/led-glass-shelf-120x20cm.jpg" alt="">
@@ -165,8 +190,10 @@
             </div>
 
             <div>
-                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
-                <h1 id="Exhibits">Exhibits</h1>
+                <div class="emptyRow"></div>
+                <h1 id="Exhibits">
+                    <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                    Exhibits</h1>
                 <h2>eVTOL exhibit</h2>
                 <div class="row">
                     <div class="column_70_30">
@@ -219,8 +246,9 @@
             </div>
 
             <div>
-                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
-                <h1 id="Plans">Floor Plans</h1>
+                <h1 id="Plans">
+                    <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                    Floor Plans</h1>
                 <figure>
                     <img src="assets/images/render/Floorplan_top.jpg" alt="Floor plan top view">
                     <figcaption>Top view (with sails)</figcaption>
@@ -230,17 +258,14 @@
             </div>
 
         </div>
-
     </section>
+
     <section id="footer">
         <div class="footerCon">
             <div class="footerRow">   
                 <div class="copyHead">© 2023 VRPE Team GmbH. Alle Rechte vorbehalten.</div>
             </div>
         </div>
-    </section>
-
-    <section class="">
     </section>
 </body>
 </html>
