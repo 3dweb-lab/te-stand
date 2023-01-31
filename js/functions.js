@@ -1,34 +1,13 @@
 const password = "vrpe";
 
 document.addEventListener('DOMContentLoaded', function() {
-    const panel = document.getElementById("controlPanel");
-    const toggleButton = document.getElementById("cameraClickableTag");
 
-    toggleButton.addEventListener("click", function() {
-        toggleButton.classList.toggle("open");
-        panel.classList.toggle("open");
-    });
-
+    /// LOIGIN
     const body = document.getElementById("body");
-    const content3D = document.getElementById("content3D");
-    const mainPageBlock = document.getElementsByClassName("mainPageBlock");
-    const pageBlock = document.getElementsByClassName("pageBlock");
-    const footer = document.getElementById("footer");
-
-
+    const lockedSection = document.getElementById("lockedSection");
     const loginPage = document.getElementById("loginPage");
     const inputPsw = document.getElementById("psw");
     const enterButton = document.getElementById("loginBtn");
-
-    content3D.style.visibility = "hidden";
-    footer.style.visibility = "hidden";
-
-    for (var i; i<mainPageBlock.length; i++){
-        mainPageBlock[i].visibility = "hidden";
-    }
-    for (var i; i<pageBlock.length; i++){
-        pageBlock[i].visibility = "hidden";
-    }
 
     enterButton.addEventListener("click", function() {
         validateLogin();
@@ -48,17 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (inputPsw.value === password) {
             //alert("Login successful!");
             //titelBlock.style.visibility = "visible";
-            content3D.style.visibility = "visible";
-            mainPageBlock.visibility = "visible";
-            footer.style.visibility = "visible";
+            // content3D.style.visibility = "visible";
+            // mainPageBlock.visibility = "visible";
+            // footer.style.visibility = "visible";
 
-            for (var i; i<mainPageBlock.length; i++){
-                mainPageBlock[i].visibility = "visible";
-            }
-            for (var i; i<pageBlock.length; i++){
-                pageBlock[i].visibility = "visible";
-            }
-
+            // for (var i; i<mainPageBlock.length; i++){
+            //     mainPageBlock[i].visibility = "visible";
+            // }
+            // for (var i; i<pageBlock.length; i++){
+            //     pageBlock[i].visibility = "visible";
+            // }
+            lockedSection.style.visibility = "visible";
             body.style.overflowY = "scroll";
             body.style.overflowX = "hidden";
             loginPage.style.display = "none";
@@ -70,4 +49,31 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Login failed!");
         }
     }
+
+    /// CONTROL PANEL
+    const panel = document.getElementById("controlPanel");
+    const toggleButton = document.getElementById("cameraClickableTag");
+
+    toggleButton.addEventListener("click", function() {
+        toggleButton.classList.toggle("open");
+        panel.classList.toggle("open");
+    });
+
+    /// NAV BAR
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navBar = document.querySelector(".navBar");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        navBar.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-item").forEach(n => n. 
+        addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            navBar.classList.remove("active");
+        }))
 });
