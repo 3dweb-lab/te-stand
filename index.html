@@ -9,20 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/functions.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/26d4a64054.js" crossorigin="anonymous"></script>
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/gui/babylon.gui.js"></script>
     <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
     <script async type="module" src="js/babylon-script.js"></script>
-    <script src="js/functions.js"></script>
 </head>
 
 <body id="body">
     <div id="loginPage">
         <header id="headerLogin">
             <div class="header_left">
-                <img class="header_logo" src="assets/images/logos/vrpe_logo_alpha.png" alt="VRPE Logo">
+                <img class="header_logo" src="assets/images/logos/vrpe_logo_augment.png" alt="VRPE Logo">
             </div>
             <div class="header_right"></div>
         </header>
@@ -38,233 +38,244 @@
         </form>
     </div>
 
-    <header id="header">
-        <div class="header_left">
-            <img class="header_logo" src="assets/images/logos/vrpe_logo_alpha.png" alt="VRPE Logo">
-        </div>
-        <div class="header_right"></div>
-    </header>
-    <div class="pageBlock">
-        <p id="titel">TE PAS23<br>
-            The trusted partner</p>
-    </div>
-    <section id="content3D">
-        <div id="loadingScreen">
-            <i class='bx bx-loader-alt'></i>
-            <p id="loadingText">loading...</p>
-        </div>
-        <canvas id="renderCanvas" touch-action="none" style="touch-action: none; -webkit-tap-highlight-color: transparent; opacity: 1;"></canvas>
-        <div id="controlPanel">
-            <div id="cameraControlsZone">
-                <p>
-                    <button type="button" class="smallButtonControlPanel" id="screenShot">Take screenshot</button>
-                </p>
-                Active camera:<br>
-                <select id="camerasList">
-                    <option value="">Default Camera</option>
-                </select>
-                
-                Post-processes: 
-                <p id="controlButtons">
-                    <!-- <div class="toggleSwitch">
-                        <label>MSAA (antialiasing)</label>
-                        <label class="toggle">
-                            <input id="toggleMsaa" type="checkbox">
-                            <span class="roundbutton"></span>
-                        </label>
-                    </div> -->
-                    <div class="toggleSwitch">
-                        <label>FXAA (antialiasing)</label>
-                        <label class="toggle">
-                            <input id="toggleFxaa" type="checkbox">
-                            <span class="roundbutton"></span>
-                        </label>
-                    </div>
-                    <div class="toggleSwitch">
-                        <label>Sharpening</label>
-                        <label class="toggle">
-                            <input id="toggleSharpening" type="checkbox">
-                            <span class="roundbutton"></span>
-                        </label>
-                    </div>
-                    <div class="toggleSwitch">
-                        <label>Bloom</label>
-                        <label class="toggle">
-                            <input id="toggleBloom" type="checkbox">
-                            <span class="roundbutton"></span>
-                        </label>
-                    </div>
-                    <div class="toggleSwitch">
-                        <label>Motion blur</label>
-                        <label class="toggle">
-                            <input id="toggleMB" type="checkbox">
-                            <span class="roundbutton"></span>
-                        </label>
-                    </div>
-                </p>
+    <section id="lockedSection">
+        <header id="header">
+            <div class="header_left">
+                <img class="header_logo" src="assets/images/logos/vrpe_logo_augment.png" alt="VRPE Logo">
             </div>
-            <div class="cameraTag"></div>
-            <div class="cameraTag" id="cameraClickableTag">
-                <img src="assets/icons/cogwheel.png">
-            </div>
-        </div>
-    </section>
-    <span class="navBar">
-        <nav>
-            <a href="#Customer" class="active">Cutomer journey</a>
-            <a href="#Design">Design</a>
-            <a href="#Mood">Mood</a>
-            <a href="#Exhibits">Exhibits</a>
-            <a href="#Plans">Floor plans</a>
-        </nav>
-    </span>
-
-    <section class = "mainPageBlock">
+            <div class="header_right"></div>
+        </header>
         <div class="pageBlock">
-            <div>
-                <div class="row">
+            <p id="titel">TE PAS23<br>
+                The trusted partner</p>
+        </div>
+        <section id="content3D">
+            <div id="loadingScreen">
+                <i class='bx bx-loader-alt'></i>
+                <p id="loadingText">loading...</p>
+            </div>
+            <canvas id="renderCanvas" touch-action="none" style="touch-action: none; -webkit-tap-highlight-color: transparent; opacity: 1;"></canvas>
+            <div id="controlPanel">
+                <div id="controlZone">
+                    <p>
+                        <button type="button" class="smallButtonControlPanel" id="screenShot">Take screenshot</button>
+                    </p>
+                    Active camera:<br>
+                    <select id="camerasList">
+                        <option value="">Default Camera</option>
+                    </select>
+                    
+                    Post-processes: 
+                    <p id="controlButtons">
+                        <div class="toggleSwitch">
+                            <label>FXAA (antialiasing)</label>
+                            <label class="toggle">
+                                <input id="toggleFxaa" type="checkbox">
+                                <span class="roundbutton"></span>
+                            </label>
+                        </div>
+                        <div class="toggleSwitch">
+                            <label>Sharpening</label>
+                            <label class="toggle">
+                                <input id="toggleSharpening" type="checkbox">
+                                <span class="roundbutton"></span>
+                            </label>
+                        </div>
+                        <div class="toggleSwitch">
+                            <label>Bloom</label>
+                            <label class="toggle">
+                                <input id="toggleBloom" type="checkbox">
+                                <span class="roundbutton"></span>
+                            </label>
+                        </div>
+                        <div class="toggleSwitch">
+                            <label>Motion blur</label>
+                            <label class="toggle">
+                                <input id="toggleMB" type="checkbox">
+                                <span class="roundbutton"></span>
+                            </label>
+                        </div>
+                    </p>
+                </div>
+                <div class="cameraTag"></div>
+                <div class="cameraTag" id="cameraClickableTag">
+                    <img src="assets/icons/cogwheel.png">
+                </div>
+            </div>
+        </section>
+
+        <div class="navContainer">
+            <div class="navSubContainer">
+                <div class="pageBlock">
+                    
+                </div>
+            </div>
+        </div>
+
+        <nav class="navBar">
+            <div class="pageBlock">
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu">
+                    <a href="#Customer"><li class="nav-item">Cutomer journey</li></a>
+                    <a href="#Design"><li class="nav-item">Design</li></a>
+                    <a href="#Exhibits"><li class="nav-item">Exhibits</li></a>
+                    <a href="#Plans"><li class="nav-item">Floor plans</li></a>
+                </ul>
+            </div>
+        </nav>
+    
+        <section class = "mainPageBlock">
+            
+            <div class="pageBlock">
+                <div>
+                    <div class="row">
+                        <div class="emptyRow"></div>
+                        <div class="column_50_50">
+                            <h1 id="Customer">
+                                <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                                Customer Journey.<br>
+                                Focus markets.<br>
+                                Customer centric.<br>
+                                Sustainable.
+                            </h1>
+                        </div>
+                        <div class="column_50_50">
+                            <p>VRPE is to develop a strong PAS23 display concept for TE ADM (see inputs to be considered on mindmap page 3).​
+                            </p><br>
+                            <p>Deliverables depicted in this booklet are:</p>
+                            <ul class="a">
+                                <li>A new stand concept, strengthening the TE position in
+                                    aerospace and at the leading show of the industry. In particular,
+                                    design solutions will be delivered in terms of creating a
+                                    captivating customer journey with a clear information and
+                                    communication structure.
+                                    <ul class="b">
+                                        <li>Focus on the three markets and related target groups / TE offer</li>
+                                        <li>Customer centric / Fostering of marketing - sales activities &amp; exchanges</li>
+                                        <li>Careful use of resources incl. space reduction compared to 2019</li>
+                                    </ul>
+                                </li>
+                                <li>A new eVTOL exhibit incl. a communication concept in two interactive steps:
+                                    <ul class="c">
+                                        <li>Challenges to the eVTOL OEMs</li>
+                                        <li>Answers TE</li>
+                                    </ul>
+                                </li>
+                                <li>Concepts and ideas towards the digitization of exhibits and presentations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
                     <div class="emptyRow"></div>
-                    <div class="column_50_50">
-                        <h1 id="Customer">
-                            <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
-                            Customer Journey.<br>
-                            Focus markets.<br>
-                            Customer centric.<br>
-                            Sustainable.
-                        </h1>
+                    <h1 id="Design">
+                        <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                        Design</h1>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <img src="assets/images/render/led-glass-shelf-120x20cm.jpg" alt="">
+                        </div>
+                        <div class="grid-item">
+                            <img src="assets/images/render/68afe26249c8b1d5aa73e6defc6c2849.jpg" alt="">
+                        </div>
+                        <div class="grid-item">
+                            <img src="assets/images/render/a5bc807a0dc718a400e1a053731f7adf.gif" alt="">
+                        </div>  
+                        <div class="grid-item">
+                            <img src="assets/images/render/Genius_Bar,_SoHo_Apple_Store,_September_2003.jpg" alt="">
+                        </div>
+                        <div class="grid-item">
+                            <img src="assets/images/render/genius_bar_redesign.jpg" alt="">
+                        </div>
+                        <div class="grid-item">
+                            <img src="assets/images/render/glass-cube.jpg" alt="">
+                        </div> 
+                      </div>
+                </div>
+    
+                <div>
+                    <div class="emptyRow"></div>
+                    <h1 id="Exhibits">
+                        <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                        Exhibits</h1>
+                    <h2>eVTOL exhibit</h2>
+                    <div class="row">
+                        <div class="column_70_30">
+                            <figure>
+                                <img src="assets/images/render/TE_PAS_23_Final_View11 korr_freisteller.png" alt="eVTOL exhibit">
+                                <figcaption>From the welcome desk a great view of the eVTOL opens up</figcaption>
+                            </figure>
+                        </div>
+                        <div class="column_30_70">
+                            <p>VRPE is to develop a strong
+                                PAS23 display concept for
+                                TE ADM (see inputs to be
+                                considered on mindmap
+                                page 3).</p><br>
+                            <p>Deliverables depicted in this booklet are:</p>
+                            <ul class="a">
+                                <li>A new stand concept, strengthening the TE
+                                    position in aerospace and at the leading show of
+                                    the industry. In particular, design solutions will be
+                                    delivered in terms of creating a captivating
+                                    customer journey with a clear information and communication structure.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="column_50_50">
-                        <p>VRPE is to develop a strong PAS23 display concept for TE ADM (see inputs to be considered on mindmap page 3).​
-                        </p><br>
-                        <p>Deliverables depicted in this booklet are:</p>
-                        <ul class="a">
-                            <li>A new stand concept, strengthening the TE position in
-                                aerospace and at the leading show of the industry. In particular,
-                                design solutions will be delivered in terms of creating a
-                                captivating customer journey with a clear information and
-                                communication structure.
-                                <ul class="b">
-                                    <li>Focus on the three markets and related target groups / TE offer</li>
-                                    <li>Customer centric / Fostering of marketing - sales activities &amp; exchanges</li>
-                                    <li>Careful use of resources incl. space reduction compared to 2019</li>
-                                </ul>
-                            </li>
-                            <li>A new eVTOL exhibit incl. a communication concept in two interactive steps:
-                                <ul class="c">
-                                    <li>Challenges to the eVTOL OEMs</li>
-                                    <li>Answers TE</li>
-                                </ul>
-                            </li>
-                            <li>Concepts and ideas towards the digitization of exhibits and presentations</li>
-                        </ul>
+    
+                    <h2>Info Stelae</h2>
+                    <div class="row">
+                        <div class="column_70_30">
+                            <figure>
+                                <img src="assets/images/render/TE_PAS_23_Final_ViewX_freisteller.png" alt="info stele">
+                                <figcaption>Front and back view of one of the three Info Stelae</figcaption>
+                            </figure>
+                        </div>
+                        <div class="column_30_70">
+                            <p>VRPE is to develop a strong
+                                PAS23 display concept for
+                                TE ADM (see inputs to be
+                                considered on mindmap
+                                page 3).</p><br>
+                            <p>Deliverables depicted in this booklet are:</p>
+                            <ul class="a">
+                                <li>A new stand concept, strengthening the TE
+                                    position in aerospace and at the leading show of
+                                    the industry. In particular, design solutions will be
+                                    delivered in terms of creating a captivating
+                                    customer journey with a clear information and communication structure.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div>
-                <div class="emptyRow"></div>
-                <h1 id="Design">
-                    <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
-                    Design</h1>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <img src="assets/images/render/led-glass-shelf-120x20cm.jpg" alt="">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/images/render/68afe26249c8b1d5aa73e6defc6c2849.jpg" alt="">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/images/render/a5bc807a0dc718a400e1a053731f7adf.gif" alt="">
-                    </div>  
-                    <div class="grid-item">
-                        <img src="assets/images/render/Genius_Bar,_SoHo_Apple_Store,_September_2003.jpg" alt="">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/images/render/genius_bar_redesign.jpg" alt="">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/images/render/glass-cube.jpg" alt="">
-                    </div> 
-                  </div>
-            </div>
-
-            <div>
-                <div class="emptyRow"></div>
-                <h1 id="Exhibits">
-                    <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
-                    Exhibits</h1>
-                <h2>eVTOL exhibit</h2>
-                <div class="row">
-                    <div class="column_70_30">
-                        <figure>
-                            <img src="assets/images/render/TE_PAS_23_Final_View11 korr_freisteller.png" alt="eVTOL exhibit">
-                            <figcaption>From the welcome desk a great view of the eVTOL opens up</figcaption>
-                        </figure>
-                    </div>
-                    <div class="column_30_70">
-                        <p>VRPE is to develop a strong
-                            PAS23 display concept for
-                            TE ADM (see inputs to be
-                            considered on mindmap
-                            page 3).</p><br>
-                        <p>Deliverables depicted in this booklet are:</p>
-                        <ul class="a">
-                            <li>A new stand concept, strengthening the TE
-                                position in aerospace and at the leading show of
-                                the industry. In particular, design solutions will be
-                                delivered in terms of creating a captivating
-                                customer journey with a clear information and communication structure.</li>
-                        </ul>
-                    </div>
+    
+                <div>
+                    <h1 id="Plans">
+                        <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
+                        Floor Plans</h1>
+                    <figure>
+                        <img src="assets/images/render/Floorplan_top.jpg" alt="Floor plan top view">
+                        <figcaption>Top view (with sails)</figcaption>
+                    </figure>
+                    <br>
+                    <br>
                 </div>
-
-                <h2>Info Stelae</h2>
-                <div class="row">
-                    <div class="column_70_30">
-                        <figure>
-                            <img src="assets/images/render/TE_PAS_23_Final_ViewX_freisteller.png" alt="info stele">
-                            <figcaption>Front and back view of one of the three Info Stelae</figcaption>
-                        </figure>
-                    </div>
-                    <div class="column_30_70">
-                        <p>VRPE is to develop a strong
-                            PAS23 display concept for
-                            TE ADM (see inputs to be
-                            considered on mindmap
-                            page 3).</p><br>
-                        <p>Deliverables depicted in this booklet are:</p>
-                        <ul class="a">
-                            <li>A new stand concept, strengthening the TE
-                                position in aerospace and at the leading show of
-                                the industry. In particular, design solutions will be
-                                delivered in terms of creating a captivating
-                                customer journey with a clear information and communication structure.</li>
-                        </ul>
-                    </div>
+    
+            </div>
+        </section>
+    
+        <section id="footer">
+            <div class="footerCon">
+                <div class="footerRow">   
+                    <div class="copyHead">© 2023 VRPE Team GmbH. Alle Rechte vorbehalten.</div>
                 </div>
             </div>
-
-            <div>
-                <h1 id="Plans">
-                    <img class="topicTrenner" src="assets/icons/topic-bar.png" alt="">
-                    Floor Plans</h1>
-                <figure>
-                    <img src="assets/images/render/Floorplan_top.jpg" alt="Floor plan top view">
-                    <figcaption>Top view (with sails)</figcaption>
-                </figure>
-                <br>
-                <br>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="footer">
-        <div class="footerCon">
-            <div class="footerRow">   
-                <div class="copyHead">© 2023 VRPE Team GmbH. Alle Rechte vorbehalten.</div>
-            </div>
-        </div>
+        </section>
     </section>
 </body>
 </html>
