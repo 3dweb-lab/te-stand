@@ -16,14 +16,14 @@ html {
 body {
     height: 100%;
     -webkit-overflow-scrolling: touch;
-    overflow-y: scroll;
     overflow: hidden;
+    overflow-y: scroll;
 }
 
 #loginPage {
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 9999;
     background-color: #fff;
     /* text-align: center; */
@@ -71,7 +71,6 @@ body {
 }
 
 #loginContainer small {
-    /* visibility: hidden; */
     display: inline-block;
     font-weight: 300;
     font-style: italic;
@@ -116,6 +115,13 @@ body {
 
 .loginBtn:active {
     background-color: #dedede;
+}
+
+#lockedSection {
+    visibility: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -180,7 +186,7 @@ h1 {
 h2 {
     font-size: 1.650em;
     margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
+    margin-block-end: 1.5em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: 700;
@@ -229,7 +235,7 @@ img {
 .mainPageBlock {
     margin: 0 auto;
     border-width: 0px;
-    padding: 0px 15px;
+    /* padding: 0px 15px; */
     background-color: #ecebe6;
     font-size: 1.0em;
     word-wrap: break-word;
@@ -249,38 +255,68 @@ img {
 }
 
 .navBar {
-    display: block;
+    display:flex;
     width: 100%;
     height: 64px;
     background-color: #e3e5e0;
+    margin: 0;
+    padding: 0;
+    /* justify-content: space-evenly; */
+    -webkit-transition: all 0.25 ease;
+    transition: all 0.25s ease;
 }
 
-nav{
+.nav-menu {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 960px;
-    width: 100%;
-    line-height: 64px;
-    justify-content: space-evenly;
-    background-color: #e3e5e0;
+    /* position: relative; */
+    list-style: none;
+    white-space: nowrap;
+    /* justify-content: space-evenly; */
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all 0.25 ease;
+    transition: all 0.25s ease;
 }
 
-nav a {
+.nav-item {
+    /* text-align: center; */
+    /* background-color: #e3e5e0; */
+    margin-right: 10px;
+    line-height: 64px;
+}
+
+.nav-menu a {
     color: inherit;
     font-weight: 400;
     text-decoration: none;
     text-align: center;
-    /* margin: auto 2%; */
+    transition: all 0.25s ease;
 }
 
-nav a:hover {
+.nav-menu a:hover {
     font-weight: 800;
 }
 
-nav a:focus {
+.nav-menu a:focus {
     font-weight: 800;
     text-decoration: underline;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: 0;
+    background-color: black;
+    -webkit-transition: all 0.25 ease;
+    transition: all 0.25s ease;
 }
 
 figure {
@@ -387,17 +423,19 @@ p {
 canvas {
     display: block;
     width: 100%;
-    height: 70vh;
+    height: 80vh;
 }
 
 #content3D {
-    display: flex;
+    display: block;
     position: relative;
     margin: 0;
+    overflow: hidden;
 }
 
 #loadingScreen {
     width: 100%;
+    height: 80vh;
     display: block;
     overflow: hidden;
     text-align: center;
@@ -453,7 +491,8 @@ i {
 }
 
 #renderCanvas {
-    display: block;
+    width: 100%;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
     touch-action: none;
@@ -468,13 +507,10 @@ div {
     display: block;
 }
 
-.infoSection {
-    width: 100%;
-    padding: 0 0 60px 0;
-}
-
 #controlPanel {
-    position: absolute;
+    /* display: inline-block; */
+    position:absolute;
+    float: right;
     right: -15em;
     width: 15em;
     top: 2em;
@@ -484,6 +520,17 @@ div {
 
 #controlPanel.open {
     right: 0;
+}
+
+#controlZone {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #eee;
+    color: #888;
+    padding: 10px 20px 10px 20px;
+    border-bottom-left-radius: 10px 10px;
+    /* box-sizing: unset; */
 }
 
 .cameraTag {
@@ -508,16 +555,6 @@ div {
     transform: rotate(-180deg);
 }
 
-#cameraControlsZone {
-    width: 100%;
-    height: 100%;
-    background-color: #eee;
-    color: #888;
-    padding: 10px 20px 10px 20px;
-    border-bottom-left-radius: 10px 10px;
-    box-sizing: unset;
-}
-
 #controlButtons {
     text-align: left;
 }
@@ -528,7 +565,7 @@ div {
 
 .smallButtonControlPanel {
     height: 2.2em;
-    width: 13em;
+    width: 100%;
     border: 1px solid #888;
     border-radius: 2px;
     background-color: #dedede;
@@ -545,7 +582,7 @@ div {
 }
 
 #camerasList {
-    width: 13em;
+    width: 100%;
     cursor: pointer;
 }
 
@@ -588,9 +625,7 @@ div {
     margin:0 0 0 0rem;
     position: relative;
     display: flex;
-    right: 2.8rem;
     width: 2.4rem;
-    height: 1.2rem;
 }
 
 input, label{
@@ -638,6 +673,41 @@ input:checked + .roundbutton:before  {
 }
 
 @media screen and (max-width: 1000px) {
+
+    html {
+        font-size: 14px;
+        font-weight: 300;
+        color: black;
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        height: 100%;
+        -webkit-overflow-scrolling: touch;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-block-start: 0.5em;
+        margin-block-end: 1.5em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: 700;
+        line-height: 0.9;
+    }
+    
+    h2 {
+        font-size: 1.25em;
+        margin-block-start: 0.5em;
+        margin-block-end: 1.5em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: 700;
+        line-height: 0.9;
+    }
+
     header {
         height: 50px;
         transition: all 0.3s ease-in-out 0s;
@@ -666,37 +736,126 @@ input:checked + .roundbutton:before  {
     .header_left {
         height: 50px;
         background: rgba(255, 255, 255, 0);
-        width: 47%;
+        max-width: 47%;
         float: left;
     }
     
     .header_logo {
         display: inline-block;
         margin-top: 0;
-        margin-right: 30px;
+        left: 0;
+        margin-right: 0px;
         height: auto;
     }
-    
     
     .header_right {
         height: 50px;
         background: rgba(255, 255, 255, 0);
-        width: 53%;
+        max-width: 53%;
         float: right;
     }
 
-    .mainPageBlock {
+    /* .mainPageBlock {
         padding-left: 15px;
         padding-right: 15px;
-      }
-
-    /* #renderCanvas {
-        width: 100%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        touch-action: none;
-        outline: 0;
-        pointer-events: auto;
     } */
+
+    .column_50_50 {
+        float: left;
+        width: 100%;
+    }
+    
+    .column_70_30 {
+        float: left;
+        width: 100%;
+    }
+    
+    .column_30_70 {
+        float: left;
+        width: 100%;
+    }
+
+    figcaption {
+        margin-bottom: 20px;
+    }
+
+    .pageBlock {
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    .navBar {
+        display: inline-flex;
+        min-height: 64px;
+        height: 0;
+        align-content: center;
+        overflow: hidden;
+    }
+
+    .navBar.active {
+        height: 302px;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.active {
+        display:block;
+        position:relative;
+        height: 100%;
+        width: 100%;
+        margin-top: -8px;
+    }
+
+
+    .nav-item {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-item.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: inline-block;
+        position: relative;
+        margin: 23px 0 0 0;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .grid-container {
+        display: block;
+        position: relative;
+    }
+
+    .grid-item img{
+        width: 100%;
+        height: 30vh;
+        margin-bottom: 20px;
+        text-align: center;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform .25s;
+        -webkit-transition: transform .25s;
+    }
+
+    figcaption {
+        margin-bottom: 20px;
+    }
 }
