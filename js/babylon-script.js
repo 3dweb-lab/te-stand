@@ -23,7 +23,7 @@ engine.displayLoadingUI();
 
 // 3D MODEL PATH
 const rootUrl = "assets/models/";
-const fileName = "TE_for_glb_06.glb";
+const fileName = "TE_for_glb_07.glb";
 
 const createScene = function () {
     // Creates a basic Babylon Scene object
