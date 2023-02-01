@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loginPage.style.display = "none";
         }
         else if (inputPsw.value == "") {
-            //alert("Enter password!");
+            alert("Enter password!");
         } 
         else {
             alert("Login failed!");
@@ -75,5 +75,29 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
             navBar.classList.remove("active");
-        }))
+    }))
+
+    // SCROLL-UP
+    const upArrowBtn = document.querySelector("#up-arrowClickableTag");
+    const upArrow = document.querySelector("#up-arrow");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            upArrowBtn.style.display = "block";
+            upArrow.style.display = "block";
+        } else {
+            upArrowBtn.style.display = "none";
+            upArrow.style.display = "none";
+        }
+      }
+
+    upArrowBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+        });
+    });
 });
