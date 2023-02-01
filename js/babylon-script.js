@@ -184,13 +184,14 @@ const createScene = function () {
         var select = document.getElementById("camerasList");
         for (var i=0; i < cameras.length; i++) {
             var newOption = document.createElement("option");
-            //newOption.value = cameras[i].id;
-            newOption.id = cameras[i].id;
+            // newOption.value = cameras[i].id;
+            // newOption.id = cameras[i].id;
             newOption.text = cameras[i].id;
+            newOption.disabled = false;
             select.appendChild(newOption);
         }
         select.addEventListener('change', () => {
-            scene.activeCamera = sceneCameras[1];
+            scene.activeCamera = sceneCameras[select.selectedIndex];
         });
 
         
