@@ -761,6 +761,11 @@ input:checked + .roundbutton:before  {
         float: right;
     }
 
+    #titel{
+        font-size: 2em;
+        margin-bottom: 0.20em;
+    }
+
     /* .mainPageBlock {
         padding-left: 15px;
         padding-right: 15px;
