@@ -417,12 +417,12 @@ p {
 canvas {
     display: block;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
 }
 
 #renderCanvas {
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     margin-left: auto;
     margin-right: auto;
     pointer-events: auto;
