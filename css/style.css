@@ -878,13 +878,6 @@ input:checked + .roundbutton:before  {
         top: -220px;
         visibility: hidden;
     }
-
-    a.anchorNavbar {
-        display: block;
-        position: relative;
-        top: 0;
-        visibility: hidden;
-    }
 }
 
 @media screen and (max-width: 640px) {
