@@ -29,8 +29,8 @@ const createScene = function () {
     // Creates a basic Babylon Scene object
     const scene = new BABYLON.Scene(engine);
     
-    // Transparent background
-    scene.clearColor = new BABYLON.Color4(0.1, 0.1, 0.1, 0).toLinearSpace();
+    // Transparent background with BABYLON.Color4(0.1, 0.1, 0.1, 0)
+    scene.clearColor = new BABYLON.Color4(1, 1, 1, 1).toLinearSpace();
 
     // CAMERA
     var defaultCamera = new BABYLON.ArcRotateCamera("Default Camera", BABYLON.Tools.ToRadians(-135), BABYLON.Tools.ToRadians(85), 1.0, BABYLON.Vector3.Zero(), scene);
@@ -172,12 +172,6 @@ const createScene = function () {
             image.shadowBlur = 0;
         }
 
-        // SCREENSHOT
-        var screenshot = document.getElementById('screenShot');
-        screenshot.addEventListener('click',function(){
-            BABYLON.Tools.CreateScreenshot(engine, sceneCameras, {width: canvas.width, height: canvas.height});
-        });
-
         console.log(sceneCameras);
 
         // CAMERA SELECTOR
@@ -194,6 +188,11 @@ const createScene = function () {
             scene.activeCamera = sceneCameras[select.selectedIndex];
         });
 
+        // SCREENSHOT
+        var screenshot = document.getElementById('screenShot');
+        screenshot.addEventListener('click',function(){
+            BABYLON.Tools.CreateScreenshot(engine, scene.activeCamera, {width: canvas.width, height: canvas.height});
+        });
         
         // POST PROCESSING
         // Motion blur
