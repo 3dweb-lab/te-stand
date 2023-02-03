@@ -515,6 +515,10 @@ div {
     background-color: #eee;
     color: #888;
     padding: 10px 20px 10px 20px;
+    box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -o-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
     border-bottom-left-radius: 10px 10px;
     /* box-sizing: unset; */
 }
@@ -526,6 +530,10 @@ div {
     width: 50px;
     top: 0;
     left: -50px;
+    box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -o-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
     border-top-left-radius: 10px 10px;
     border-bottom-left-radius: 10px 10px;
     z-index: 101;
@@ -667,6 +675,10 @@ input:checked + .roundbutton:before  {
     background-color: #eee;
     height: 50px;
     width: 50px;
+    box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -webkit-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
+    -o-box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.03);
     border-top-left-radius: 10px 10px;
     border-bottom-left-radius: 10px 10px;
     z-index: 8999;
